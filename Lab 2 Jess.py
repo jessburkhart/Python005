@@ -12,7 +12,7 @@ if labgrade < 0:
     print('The lab value should have been zero or greater. It has been changed to zero.')
 elif labgrade > 100:
     labgrade = 100
-    print('The lab value should have been 100 or less. It has been change to 100.')
+    print('The lab value should have been 100 or less. It has been changed to 100.')
 #added print() statement to add a space between lines
 print()
 #this line asks user for exam grade input and assigns input to examgrade
@@ -23,7 +23,7 @@ if examgrade < 0:
     print('The exam value should have been zero or greater. It has been changed to zero.')
 elif examgrade > 100:
     examgrade = 100
-    print('The exam value should have been 100 or less. It has been change to 100.')
+    print('The exam value should have been 100 or less. It has been changed to 100.')
 #added print() statement to add a space between lines
 print()
 #this line asks user for attendance grade input and assigns input to attendance
@@ -34,7 +34,7 @@ if attendance < 0:
     print('The attendance value should have been zero or greater. It has been changed to zero.')
 elif attendance > 100:
     attendance = 100
-    print('The attendance value should have been 100 or less. It has been change to 100.')
+    print('The attendance value should have been 100 or less. It has been changed to 100.')
 #added print() statement to add a space between lines
 print()
 #this line is an equation to figure out the weighted grade and assigned it to variable weightgrade
