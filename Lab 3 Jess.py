@@ -47,9 +47,3 @@ while play:
                 elif (user_input == 'N') or (user_input == 'n'): #this line checks the user input for N and n and if they input N or n then play is set equal to false and stops the game
                     play = False #this line sets play equal to false so that the game stops
                     break #this line breaks out of this while loop
-
-
-
-
-
-    
