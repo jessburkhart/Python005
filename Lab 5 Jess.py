@@ -53,27 +53,27 @@ def character_value(char):
         
 def get_check_digit(card):
     values = [] #this line is to make an empty list, so numbers can be added to it
-    for i in range(0,9):
-        if (i < 5) and (i >= 0):
-            num1 = character_value(card[i])
-            values.append(num1)
-        if (i >= 5) and (i <= 8):
-            num2 = character_value(card[i])
-            values.append(num2)
+    for i in range(0,9): #this line is go through number 0 through 8
+        if (i < 5) and (i >= 0): #this line is to check for numbers between 0 and 5
+            num1 = character_value(card[i]) #this line takes the character at index i of the string card, and runs it through the function character_value
+            values.append(num1) #this line adds the number to the list values
+        if (i >= 5) and (i <= 8): #this line is to check fro numbers between 5 and 8 inclusive
+            num2 = character_value(card[i]) #this line takes the character at index i of the string, and runs it through the function character_value
+            values.append(num2) #this line adds the number to the list values
     secondvalues = [] #this line is to make an empty list, so numbers can be added to it
-    for x in range(0,9):
-        total = (x + 1) * values[x]
-        secondvalues.append(total)
-    secondtotal = 0
-    for y in secondvalues:
-        secondtotal += y
-    final = secondtotal %10
-    return final
+    for x in range(0,9): #this line is to go through number 0 through 8
+        total = (x + 1) * values[x] #this line takes the number x plus 1 and then multiplied by the value at index x
+        secondvalues.append(total) #this line adds the number to the list secondvalues
+    secondtotal = 0 #this line assigns secondtotal to 0 
+    for y in secondvalues: #this line goes through the elements in the list secondvalues
+        secondtotal += y #this line adds y to secondtotal
+    final = secondtotal %10 #this line takes secondtotal and gets the remainder when divided by 10
+    return final #this line returns the value for final
 
 def verify_check_digit(card):
-    if len(card) != 10:
-        return (False, 'The length of the number given must be 10')
-    for a in range(0,5):
+    if len(card) != 10: #this line is to check if the string card has a length of 10, and if it is not length 10, it returns false
+        return (False, 'The length of the number given must be 10') 
+    for a in range(0,5): 
         if card[a].isalpha() == False:
             return (False, f'The first 5 characters must be A-Z, the invalid character is at {a} is {card[a]}')
     for b in range(7,10):
