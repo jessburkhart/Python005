@@ -74,45 +74,40 @@ def verify_check_digit(card):
     if len(card) != 10: #this line is to check if the string card has a length of 10, and if it is not length 10, it returns false
         return (False, 'The length of the number given must be 10') 
     for a in range(0,5): 
-        if card[a].isalpha() == False:
+        if card[a].isalpha() == False: #this line checks if it is all letters at index a in the string card, and if equal to false, it returns false
             return (False, f'The first 5 characters must be A-Z, the invalid character is at {a} is {card[a]}')
     for b in range(7,10):
-        if card[b].isdigit() == False:
+        if card[b].isdigit() == False: #this line checks if it is all digits at index b in the string card, and if equal to false, it returns false
             return (False, f'The last 3 characters must be 0-9, the invalid character is at {b} is {card[b]}')
-    if (int(card[5]) > 3) and (int(card[5]) < 1):
+    if (int(card[5]) > 3) and (int(card[5]) < 1): #this line checks to see if the element at index 5 in the string is not between 1 and 3, and if so, it returns false
         return (False, 'The sixth character must be 1 2 or 3')
-    if (int(card[6]) > 4) and (int(card[6]) < 1):
+    if (int(card[6]) > 4) and (int(card[6]) < 1): #this line checks to see if the element at index 6 in the string is not between 1 and 4, and if so, it returns false
         return (False, 'The seventh character must be 1 2 3 or 4')
-    if int(card[9]) != (get_check_digit(card)):
+    if int(card[9]) != (get_check_digit(card)): #this line checks to see if the element at index 9 is not equal to the string when ran through the function get_check_digit, and if not equal, it returns false
         return (False, f'Check digit {card[9]} does not match calculated value {get_check_digit(card)}.')
     else:
-        return (True, '')
+        return (True, '') #if it doesn't return false for any, it returns true
 
 
 
 if __name__ == "__main__":
 
     # main program
-    print('{:^60}'.format('Linda Hall'))
-    print('{:^60}'.format('Library Card Check'))
-    print('='*60)
+    print('{:^60}'.format('Linda Hall')) #this line is to center Linda Hall
+    print('{:^60}'.format('Library Card Check')) #this line is to center Library Card Check
+    print('='*60) #this line is to print 60 equal signs
     print()
-    while True:
-        lcard = input('Enter Library Card. Hit Enter to Exit ==> ')
-        x, y = verify_check_digit(lcard)
-        if lcard.isalnum() == True:
-            if x == False:
+    while True: #this line is to run the while loop when true
+        lcard = input('Enter Library Card. Hit Enter to Exit ==> ') #this line assigns lcard to the user input
+        x, y = verify_check_digit(lcard) #this line assigns x and y to the value returned when lcard is put into the verify_check_digit function
+        if lcard.isalnum() == True: #this line checks to if it is all characters and numbers in lcard
+            if x == False: #this line checks to see if x is equal to false, and if so, it prints the statements
                 print('Library card is invalid.')
                 print(y)
-            elif x == True:
+            elif x == True: #this line checks to see if x is equal to true, and if so, it prints the statements
                 print('Library card is valid.')
-                print(f'The card belongs to a student in {get_school(lcard)}')
-                print(f'The card belongs to a {get_grade(lcard)}')
+                print(f'The card belongs to a student in {get_school(lcard)}') #this line prints the value when lcard is put through the get_school function
+                print(f'The card belongs to a {get_grade(lcard)}') #this line prints the value when lcard is put through the get_grade function
             print()
-        if lcard.isalnum() == False:
+        if lcard.isalnum() == False: #this line checks to see if it is all characters and numbers in lcard, and if false, it breaks from the loop
             break
-        
-        
-        
-        
-        
