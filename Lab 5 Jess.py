@@ -100,7 +100,7 @@ if __name__ == "__main__":
     while True: #this line is to run the while loop when true
         lcard = input('Enter Library Card. Hit Enter to Exit ==> ') #this line assigns lcard to the user input
         x, y = verify_check_digit(lcard) #this line assigns x and y to the value returned when lcard is put into the verify_check_digit function
-        if len(lcard) != 0: #this line checks to if it is all characters and numbers in lcard
+        if len(lcard) != 0: #this line checks to if the length of lcard is not equal to 0, and if so if continues on
             if x == False: #this line checks to see if x is equal to false, and if so, it prints the statements
                 print('Library card is invalid.')
                 print(y)
@@ -109,5 +109,5 @@ if __name__ == "__main__":
                 print(f'The card belongs to a student in {get_school(lcard)}') #this line prints the value when lcard is put through the get_school function
                 print(f'The card belongs to a {get_grade(lcard)}') #this line prints the value when lcard is put through the get_grade function
             print()
-        if len(lcard) == 0: #this line checks to see if it is all characters and numbers in lcard, and if false, it breaks from the loop
+        if len(lcard) == 0: #this line checks to see if the length of lcard is 0, and if so, it breaks from the loop
             break
