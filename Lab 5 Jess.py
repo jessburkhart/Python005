@@ -79,9 +79,9 @@ def verify_check_digit(card):
     for b in range(7,10):
         if card[b].isdigit() == False: #this line checks if it is all digits at index b in the string card, and if equal to false, it returns false
             return (False, f'The last 3 characters must be 0-9, the invalid character is at {b} is {card[b]}')
-    if (int(card[5]) > 3) and (int(card[5]) < 1): #this line checks to see if the element at index 5 in the string is not between 1 and 3, and if so, it returns false
+    if (int(card[5]) > 3) or (int(card[5]) < 1): #this line checks to see if the element at index 5 in the string is not between 1 and 3, and if so, it returns false
         return (False, 'The sixth character must be 1 2 or 3')
-    if (int(card[6]) > 4) and (int(card[6]) < 1): #this line checks to see if the element at index 6 in the string is not between 1 and 4, and if so, it returns false
+    if (int(card[6]) > 4) or (int(card[6]) < 1): #this line checks to see if the element at index 6 in the string is not between 1 and 4, and if so, it returns false
         return (False, 'The seventh character must be 1 2 3 or 4')
     if int(card[9]) != (get_check_digit(card)): #this line checks to see if the element at index 9 is not equal to the string when ran through the function get_check_digit, and if not equal, it returns false
         return (False, f'Check digit {card[9]} does not match calculated value {get_check_digit(card)}.')
@@ -100,7 +100,7 @@ if __name__ == "__main__":
     while True: #this line is to run the while loop when true
         lcard = input('Enter Library Card. Hit Enter to Exit ==> ') #this line assigns lcard to the user input
         x, y = verify_check_digit(lcard) #this line assigns x and y to the value returned when lcard is put into the verify_check_digit function
-        if lcard.isalnum() == True: #this line checks to if it is all characters and numbers in lcard
+        if lcard.isalnum() != False: #this line checks to if it is all characters and numbers in lcard
             if x == False: #this line checks to see if x is equal to false, and if so, it prints the statements
                 print('Library card is invalid.')
                 print(y)
